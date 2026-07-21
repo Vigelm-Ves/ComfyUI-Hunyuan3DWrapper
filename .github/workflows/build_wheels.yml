@@ -38,6 +38,7 @@ jobs:
           set CUDA_HOME=%CUDA_PATH%
           set DISTUTILS_USE_SDK=1
           set FORCE_CUDA=1
+          set TORCH_CUDA_ARCH_LIST=8.0;8.6;8.9
           cd hy3dgen/texgen/custom_rasterizer
           python setup.py bdist_wheel
 
