@@ -19,7 +19,7 @@ jobs:
       - name: Install CUDA Toolkit
         uses: Jimver/cuda-toolkit@v0.2.19
         with:
-          cuda-version: '12.4.1'
+          cuda: '12.4.1'
 
       - name: Install PyTorch and build tools
         run: |
