@@ -25,16 +25,19 @@ jobs:
           cuda: '12.4.1'
           use-github-cache: 'false'
 
-      - name: Install PyTorch and build tools
+      - name: Install PyTorch, NumPy and build tools
         shell: cmd
         run: |
           python -m pip install --upgrade pip setuptools wheel ninja
+          pip install numpy
           pip install torch --index-url https://download.pytorch.org/whl/cu124
 
       - name: Build Wheel
         shell: cmd
         run: |
           set CUDA_HOME=%CUDA_PATH%
+          set DISTUTILS_USE_SDK=1
+          set FORCE_CUDA=1
           cd hy3dgen/texgen/custom_rasterizer
           python setup.py bdist_wheel
 
